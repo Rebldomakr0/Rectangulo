@@ -1,0 +1,61 @@
+import static java.lang.System.exit;
+import java.util.Scanner;
+public class Proyect1 {
+    
+    public static void main(String args[]){
+        double xa,ya,xb,yb,xc,yc, area, perim, res1, res2;
+        int opc;
+        Scanner in = new Scanner(System.in);
+        
+        System.out.println("Ingrese el valor de la coordenanda xa: ");
+        xa = in.nextDouble();
+        System.out.println("Ingrese el valor de la coordenanda ya: ");
+        ya = in.nextDouble();
+        System.out.println("Ingrese el valor de la coordenanda xb(debe ser igual a xa): ");
+        xb = in.nextDouble();
+        System.out.println("Ingrese el valor de la coordenanda yb: ");
+        yb = in.nextDouble();
+        System.out.println("Ingrese el valor de la coordenanda xc: ");
+        xc = in.nextDouble();
+        System.out.println("Ingrese el valor de la coordenanda yc (debe ser igual a ya): ");
+        yc = in.nextDouble();
+        
+        if(xa!=xb){
+            System.out.println("xa debe ser igual a xb\n");
+            exit(0);
+        }
+        if(yb!=yc){
+            System.out.println("yb debe ser igual a yc\n");
+            exit(0);
+        }
+        
+        double a = (xa-xb)+(ya-yb);
+        res1 = Math.pow(a, 2);
+        double altura = Math.sqrt(res1);
+        
+        double b = (xa-xc)+(ya-yc);
+        res2 = Math.pow(b, 2);
+        double base = Math.sqrt(res2);
+        
+        System.out.println("La altura es " +altura);
+        System.out.println("La base es " +base);
+        
+        System.out.println("\nSeleccione 1 si desea sacar la area o 2 si desea sacar el perimetro ");
+        opc = in.nextInt();
+        switch (opc) {
+            case 1:
+                area = base*altura;
+                System.out.println("\nEl area es " +area);
+                break;
+            case 2:
+                perim = 2*(base + altura);
+                System.out.println("\nEl perimetro es " +perim);
+                break;
+            default:
+                System.out.println("\nPonga un digito valido (1 o 2)");
+                break;
+        }
+        
+    }
+}
+
